@@ -2,6 +2,7 @@ package content;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -26,7 +27,9 @@ public class JsonServlet extends HttpServlet {
 	}
 
 	/*
-	 	'{"name":"ALOHA","age":"20","roles":["ROLE_USER", "ROLE_ADMIN", "ROLE_MGR"]}'
+	 	curl -X POST http://localhost:8080/Servlet/JsonServlet ^
+	 	-H "Content-Type: application/json" ^
+	 	-d "{\"name\":\"ALOHA\",\"age\":\"20\",\"roles\":[\"ROLE_USER\", \"ROLE_ADMIN\", \"ROLE_MGR\"]}"
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// 요청
@@ -34,7 +37,8 @@ public class JsonServlet extends HttpServlet {
 		ServletInputStream sis = request.getInputStream();
 		ObjectMapper mapper = new ObjectMapper();
 		Map<String, Object> map 
-		   = mapper.readValue(sis, new TypeReference<Map<String,Object>>() {});
+//		   = mapper.readValue(sis, new TypeReference<Map<String,Object>>() {});
+		   = mapper.readValue(sis, new HashMap<String, Object>().getClass());
 		String name = (String) map.get("name");
 		int age = Integer.parseInt( (String)( map.get("age") ) );
 		List<String> roles = (List<String>) map.get("roles");
@@ -55,6 +59,7 @@ public class JsonServlet extends HttpServlet {
 		ServletInputStream sis = request.getInputStream();
 		ObjectMapper mapper = new ObjectMapper();
 		Users users= mapper.readValue(sis, Users.class);
+		// Users users= mapper.readValue(sis, new Users().getClass());
 		System.out.println("name : " + users.getName());
 		System.out.println("age : " + users.getAge());
 		System.out.println("role : " + users.getRoles());

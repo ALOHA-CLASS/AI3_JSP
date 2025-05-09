@@ -8,7 +8,7 @@
 </head>
 <body>
 	<h1>로그인</h1>
-	<form action="/Servlet/method" method="post">
+	<form action="/Servlet/method" method="post" enctype="application/x-www-form-urlencoded">
 		<div>
 			<label for="username">아이디</label>
 			<input type="text" name="username" id="username"
