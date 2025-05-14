@@ -7,11 +7,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<title>JSTL - sql</title>
+<meta charset="UTF-8">
+<title>Insert title here</title>
 </head>
 <body>
-	<h1>게시글 목록</h1>
 	<!-- 데이터 소스 -->
 	<sql:setDataSource var="dataSource" 
 		url="jdbc:mysql://localhost:3306/aloha?serverTimezone=Asia/Seoul&allowPublicKeyRetrieval=true&useSSL=false"
@@ -20,26 +19,16 @@
 		password="123456"
 	/>
 	
-	<%-- <sql:query var="결과객체" dataSource="${ dataSource }"></sql:query>  --%>
-	<sql:query var="list" dataSource="${dataSource}">
-		SELECT * FROM board
-	</sql:query>
+	<!-- 게시글 삭제 JSTL 태그 -->
+	<sql:update dataSource="${dataSource}" var="resultSet">
+		DELETE FROM board
+		WHERE no = ?
+		<sql:param value="${ param.no }"/>
+	</sql:update>
 	
-	<table border="1">
-		<tr>
-			<c:forEach var="col" items="${ list.columnNames }">
-				<th><c:out value="${col}" /></th>
-			</c:forEach>
-		</tr>
-		<c:forEach var="row" items="${ list.rowsByIndex }">
-			<tr>
-				<c:forEach var="col" items="${row}" varStatus="i">
-					<td><c:out value="${col}"/>
-				</c:forEach>
-			</tr>
-		</c:forEach>
-	
-	</table>
+	<!-- JSTL 이용한 외부 페이지 포함하기 -->
+	<c:import url="sql01_2.jsp" var="list" />
+	${ list }
 </body>
 </html>
 
