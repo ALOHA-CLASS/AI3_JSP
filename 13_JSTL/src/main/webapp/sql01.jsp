@@ -20,10 +20,12 @@
 		password="123456"
 	/>
 	
-	<!-- <sql:query var="결과객체" dataSource="${ dataSource }">  -->
-	<sql:query var="list" dataSource="${ dataSource }">
+	<%-- <sql:query var="결과객체" dataSource="${ dataSource }"></sql:query>  --%>
+	<sql:query var="list" dataSource="${dataSource}">
 		SELECT * FROM board
 	</sql:query>
+	
+	
 </body>
 </html>
 
