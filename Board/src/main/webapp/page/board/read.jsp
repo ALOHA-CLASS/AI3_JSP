@@ -26,7 +26,7 @@
 	
 				<div class="mb-3">
 					<label for="username" class="form-label">작성자</label>
-					<input type="text" class="form-control" id="username" name="username" value="${board.userNo}" readonly>
+					<input type="text" class="form-control" id="username" name="username" value="${board.user.name}" readonly>
 				</div>
 	
 				<div class="mb-3">
@@ -35,8 +35,8 @@
 				</div>
 	
 				<div class="d-grid gap-2 mt-4">
-					<a href="<%= root %>/board/update?id=${ board.id }" class="btn btn-primary">수정</a>
-					<a href="<%= root %>/board/list" class="btn btn-secondary">목록</a>
+					<a href="${ root }/board/update?id=${ board.id }" class="btn btn-primary">수정</a>
+					<a href="${ root }/board/list" class="btn btn-secondary">목록</a>
 				</div>
 			</form>
 		</div>
@@ -48,10 +48,3 @@
 	<jsp:include page="/layout/script.jsp" />
 </body>
 </html>
-
-
-
-
-
-
-

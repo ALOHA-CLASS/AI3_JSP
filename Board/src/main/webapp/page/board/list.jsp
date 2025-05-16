@@ -24,7 +24,7 @@
 			
 			<!-- 게시판 테이블 -->
 			<div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
-				<a href="<%= root %>/board/create.jsp" class="btn btn-success btn-lg px-4 me-sm-3">
+				<a href="${ root }/board/create.jsp" class="btn btn-success btn-lg px-4 me-sm-3">
 					글쓰기
 				</a>
 			</div>
@@ -47,11 +47,11 @@
 	                    <tr class="text-center">
 	                        <td>${board.no}</td>
 	                        <td class="text-start">
-	                        	<a href="<%= root %>/board/read.jsp?id=${ board.id }">
+	                        	<a href="${ root }/board/read.jsp?id=${ board.id }">
 		                        	${board.title}
 	                        	</a>
 	                        </td>
-	                        <td>${board.userNo}</td>
+	                        <td>${board.user.name}</td>
 	                        <td>
 	                            <fmt:formatDate value="${board.createdAt}" pattern="yyyy-MM-dd HH:mm:ss"/>
 	                        </td>
@@ -68,6 +68,3 @@
 	<jsp:include page="/layout/script.jsp" />
 </body>
 </html>
-
-
-

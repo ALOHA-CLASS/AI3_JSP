@@ -16,7 +16,7 @@
 	<main>
 		<div class="container mt-5">
 			<h2 class="mb-4">게시글 수정</h2>
-			<form id="form" action="<%= root %>/board/update" method="post">
+			<form id="form" action="${ root }/board/update" method="post">
 				<input type="hidden" name="id" value="${board.id}" />
 	
 				<div class="mb-3">
@@ -26,7 +26,7 @@
 	
 				<div class="mb-3">
 					<label for="username" class="form-label">작성자</label>
-					<input type="text" class="form-control" id="username" name="username" value="${board.userNo}" readonly>
+					<input type="text" class="form-control" id="username" name="username" value="${board.user.name}" readonly>
 				</div>
 	
 				<div class="mb-3">
@@ -37,7 +37,7 @@
 				<div class="d-grid gap-2 mt-4">
 					<button type="submit" class="btn btn-primary">수정</button>
 					<button type="button" class="btn btn-danger" id="btn-delete">삭제</button>
-					<a href="<%= root %>/board/list" class="btn btn-secondary">목록</a>
+					<a href="${ root }/board/list" class="btn btn-secondary">목록</a>
 				</div>
 			</form>
 		</div>
@@ -64,10 +64,3 @@
 	</script>
 </body>
 </html>
-
-
-
-
-
-
-

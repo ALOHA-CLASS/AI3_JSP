@@ -16,7 +16,7 @@
 	<main>
 		<div class="container mt-5">
 			<h2 class="mb-4">게시글 등록</h2>
-			<form action="<%= root %>/board/create" method="post">
+			<form action="${ root }/board/create" method="post">
 				<div class="mb-3">
 					<label for="title" class="form-label">제목</label>
 					<input type="text" class="form-control" id="title" name="title" required>
@@ -29,7 +29,7 @@
 	
 				<div class="d-grid gap-2 mt-4">
 					<button type="submit" class="btn btn-primary">등록</button>
-					<a href="<%= root %>/board/list" class="btn btn-secondary">목록</a>
+					<a href="${ root }/board/list" class="btn btn-secondary">목록</a>
 				</div>
 			</form>
 		</div>
@@ -41,10 +41,3 @@
 	<jsp:include page="/layout/script.jsp" />
 </body>
 </html>
-
-
-
-
-
-
-

@@ -5,7 +5,6 @@
 header,
 footer
 {
-	width: var(--container-size);
 	margin: 0 auto;
 }
 

@@ -15,14 +15,3 @@ public interface UserService {
 	// 아이디로 회원 조회
 	public Users selectByUsername(String username);
 }
-
-
-
-
-
-
-
-
-
-
-

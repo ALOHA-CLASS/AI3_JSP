@@ -24,7 +24,6 @@ public class BoardServlet extends HttpServlet {
 	 * [GET]
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String root = request.getContextPath();
 		String path = request.getPathInfo();
 		String page = "";
 		
@@ -71,7 +70,6 @@ public class BoardServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String root = request.getContextPath();
 		String path = request.getPathInfo();
-		String page = "";
 		// 게시글 등록
 		if( path.equals("/create") ) {
 			String title = request.getParameter("title");

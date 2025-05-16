@@ -8,3 +8,16 @@ CREATE TABLE board (
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT '작성일',
     updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '수정일'
 ) COMMENT '게시판';
+
+
+
+TRUNCATE TABLE board;
+INSERT INTO board(id, title, user_no, content)
+VALUES 
+(UUID(), '제목001', 1, '내용001'),
+(UUID(), '제목002', 2, '내용002'),
+(UUID(), '제목003', 3, '내용003'),
+(UUID(), '제목004', 1, '내용004'),
+(UUID(), '제목005', 2, '내용004'),
+(UUID(), '제목003', 3, '내용003')
+;

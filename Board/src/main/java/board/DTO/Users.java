@@ -29,8 +29,3 @@ public class Users {
 	private Date createdAt;
 	private Date updatedAt;
 }
-
-
-
-
-

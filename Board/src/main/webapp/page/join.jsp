@@ -22,7 +22,7 @@
 		<div class="container shop p-1 p-md-2 p-lg-4 mb-5" >
 			<div class="row justify-content-center">
 				<div class="col-12 col-md-10 col-lg-6">
-					<form action="<%= root %>/users/join" name="joinForm" method="post">
+					<form action="${ root }/users/join" name="joinForm" method="post">
 						<input type="hidden" name="duplicaed" id="duplicaed" value="false" /> 
 						<div class="input-group mx-0 mb-3 row">
 							<label for="username" class="input-group-text col-md-4" id="lb_username">아이디</label>
@@ -55,7 +55,6 @@
 								   name="email" id="email" placeholder="이메일">
 						</div>
 						
-<!-- 						<div class="d-grid gap-2 mt-5 mb-5 d-md-flex justify-content-md-between"> -->
 						<div class="d-grid gap-2 mt-5 mb-5">
 							<input type="button" class="btn btn-lg btn-primary" value="가입" onclick="checkUser()" />
 							<a href="javascript: history.back()" class="btn btn-lg btn-secondary">취소</a>
@@ -83,16 +82,3 @@
 	</script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
