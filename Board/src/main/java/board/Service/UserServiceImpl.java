@@ -31,7 +31,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public boolean idCheck(String username) {
-		Map<Object, Object> map = new HashMap<>();
+		Map<String, Object> map = new HashMap<>();
 		map.put("username", username);
 		
 		Object user = null;
@@ -52,7 +52,7 @@ public class UserServiceImpl implements UserService {
 		String username = user.getUsername();
 		String password = user.getPassword();
 		
-		Map<Object, Object> map = new HashMap<>();
+		Map<String, Object> map = new HashMap<>();
 		map.put("username", username);
 		
 		Users joinedUser = null;
@@ -72,7 +72,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public Users selectByUsername(String username) {
-		Map<Object, Object> map = new HashMap<>();
+		Map<String, Object> map = new HashMap<>();
 		map.put("username", username);
 		Users user = null;
 		try {

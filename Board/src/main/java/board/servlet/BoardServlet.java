@@ -53,6 +53,16 @@ public class BoardServlet extends HttpServlet {
 			RequestDispatcher dispatcher = request.getRequestDispatcher(page);
 			dispatcher.forward(request, response);
 		}
+		
+		// 게시글 수정
+		if( path.equals("/update") || path.equals("/update.jsp") ) {
+			String id = request.getParameter("id");
+			Board board = boardService.selectById(id);
+			request.setAttribute("board", board);
+			page = "/page/board/update.jsp";
+			RequestDispatcher dispatcher = request.getRequestDispatcher(page);
+			dispatcher.forward(request, response);
+		}
 	}
 
 	/**
@@ -80,6 +90,45 @@ public class BoardServlet extends HttpServlet {
 			}
 			else {
 				response.sendRedirect(root + "/board/create.jsp?error=true");
+			}
+		}
+		
+		// 게시글 수정
+		if( path.equals("/update") ) {
+			String id = request.getParameter("id");
+			String title = request.getParameter("title");
+			String content = request.getParameter("content");
+			int userNo = ((Users) request.getSession().getAttribute("loginUser")).getNo();
+			Board board = Board.builder()
+						       .id(id)
+							   .title(title)
+							   .content(content)
+							   .userNo(userNo)
+							   .build();
+			
+			boolean result = boardService.updateById(board);
+			if( result ) {
+				response.sendRedirect(root + "/board/list");
+			}
+			else {
+				response.sendRedirect(root + "/board/update.jsp?error=true");
+			}
+		}
+		
+		
+		// 게시글 삭제
+		if( path.equals("/delete") ) {
+			String id = request.getParameter("id");
+			Board board = Board.builder()
+						       .id(id)
+							   .build();
+			
+			boolean result = boardService.delete(board);
+			if( result ) {
+				response.sendRedirect(root + "/board/list");
+			}
+			else {
+				response.sendRedirect(root + "/board/update.jsp?error=true");
 			}
 		}
 	}

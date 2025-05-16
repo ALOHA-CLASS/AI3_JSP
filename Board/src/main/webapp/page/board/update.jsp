@@ -15,8 +15,8 @@
 		
 	<main>
 		<div class="container mt-5">
-			<h2 class="mb-4">게시글 조회</h2>
-			<form action="">
+			<h2 class="mb-4">게시글 수정</h2>
+			<form id="form" action="<%= root %>/board/update" method="post">
 				<input type="hidden" name="id" value="${board.id}" />
 	
 				<div class="mb-3">
@@ -35,7 +35,8 @@
 				</div>
 	
 				<div class="d-grid gap-2 mt-4">
-					<a href="<%= root %>/board/update?id=${ board.id }" class="btn btn-primary">수정</a>
+					<button type="submit" class="btn btn-primary">수정</button>
+					<button type="button" class="btn btn-danger" id="btn-delete">삭제</button>
 					<a href="<%= root %>/board/list" class="btn btn-secondary">목록</a>
 				</div>
 			</form>
@@ -46,6 +47,21 @@
 	<%-- [Contents] ######################################################### --%>
 	<jsp:include page="/layout/footer.jsp" />
 	<jsp:include page="/layout/script.jsp" />
+	
+	<script>
+// 		const form = document.getElementById("form")
+		const form = $('#form')
+		
+		// 삭제 버튼 클릭
+		$('#btn-delete').on('click', function() {
+			const check = confirm("정말로 삭제하시겠습니까?")
+			if( !check ) return
+// 			form.action = "/Board/board/delete"
+			form.attr("action", "/Board/board/delete")
+			form.submit()
+		})
+	
+	</script>
 </body>
 </html>
 
